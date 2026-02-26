@@ -694,6 +694,22 @@
 <footer>
   Brief réalisé pour le cours de <span>PAO</span> · 4e année · RNCP38504
 </footer>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 
+  checkboxes.forEach((checkbox, index) => {
+    const savedState = localStorage.getItem("portfolio-check-" + index);
+    if (savedState === "true") {
+      checkbox.checked = true;
+    }
+
+    checkbox.addEventListener("change", function () {
+      localStorage.setItem("portfolio-check-" + index, checkbox.checked);
+    });
+  });
+});
+</script>
 </body>
+
 </html>
